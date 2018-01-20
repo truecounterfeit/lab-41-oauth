@@ -1,7 +1,7 @@
 ####  Documentation  
 <!-- Write a description of the project in your README.md -->
 
-* 8080
+* localhost 3000
 * run start
 
 # slugchat
@@ -17,8 +17,8 @@ API_URL='http://localhost:3000'
 CLIENT_URL='http://localhost:8080'
 CORS_ORIGINS='http://localhost:8080'
 MONGODB_URI='mongodb://localhost/slugchat-dev'
-GOOGLE_CLIENT_SECRET='<put google client secret here>'
-GOOGLE_CLIENT_ID='<put your google cleint id here>'
+GOOGLE_CLIENT_SECRET= 665144491485-48b4b1h3lnvp2a96rt2bse0qqsn1nr6n.apps.googleusercontent.com
+GOOGLE_CLIENT_ID= BI9B10gdqcr6vJVmSc0smopV
 ```
 #### App
 #backend
