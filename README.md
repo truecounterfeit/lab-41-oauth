@@ -2,7 +2,7 @@
 <!-- Write a description of the project in your README.md -->
 
 * 8080
-* run start 
+* run start
 
 #### backend
 * create an app on the google dev console
@@ -12,4 +12,4 @@
 
 #### frontend
 * create an index.html with an anchor tag pointing to the google authoraztion page
- * configure the query string will correct key value pairs
+* configure the query string will correct key value pairs
