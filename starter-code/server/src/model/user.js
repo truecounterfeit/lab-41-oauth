@@ -64,21 +64,6 @@ User.createFromSignup = function (user) {
 
 User.createFromOAuth = function (OAuthUser) {
 
-  /*
-      Google User Object:
-      { kind: 'plus#personOpenIdConnect',
-      gender: 'male',
-      sub: '117393462759043938336',
-      name: 'John Cokos',
-      given_name: 'John',
-      family_name: 'Cokos',
-      profile: 'https://plus.google.com/117393462759043938336',
-      picture: 'https://lh3.googleusercontent.com/-vBtnARGbFww/AAAAAAAAAAI/AAAAAAAAAAA/USr3VMUfUMU/photo.jpg?sz=50',
-      email: 'highlander.44@gmail.com',
-      email_verified: 'true',
-      locale: 'en' }
-
-  */
 
   if ( ! OAuthUser || ! OAuthUser.email ) {
       return Promise.reject( createError(400, 'VALIDATION ERROR: missing username email or password ') );

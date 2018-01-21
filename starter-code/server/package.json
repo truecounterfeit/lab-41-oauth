@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "401 JS -- Lab 41 OAUTH BACKEND",
   "main": "index.js",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "lint": "eslint .",
     "start": "node index.js",
@@ -19,7 +19,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/truecounterfeit/lab-41-oauth/issues"
   },
