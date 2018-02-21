@@ -1,8 +1,9 @@
 {
-  "name": "bbchat",
+  "name": "lab-41-oauth",
   "version": "1.0.0",
+  "description": "401 JS -- Lab 41 OAUTH BACKEND",
   "main": "index.js",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "lint": "eslint .",
     "start": "node index.js",
@@ -12,6 +13,16 @@
     "mongo-on": "mkdir -p ./db && mongod --dbpath ./db --smallfiles",
     "mongo-off": "killall mongod"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truecounterfeit/lab-41-oauth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/truecounterfeit/lab-41-oauth/issues"
+  },
+  "homepage": "https://github.com/truecounterfeit/lab-41-oauth#readme",
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.1",

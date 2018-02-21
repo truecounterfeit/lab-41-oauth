@@ -12,7 +12,7 @@ import Mongoose, {Schema} from 'mongoose';
 const userSchema =    new Schema({
     email: {type: String, required: true, unique: true},
     username: {type: String, required: true, unique: true},
-    passwordHash: {type: String, required: true},
+    passwordHash: {type: String},
     tokenSeed: {type: String, unique: true, default: ''},
 });
 
@@ -28,9 +28,9 @@ userSchema.methods.passwordCompare = function(password){
 };
 
 userSchema.methods.tokenCreate    = function(){
-  
+
     this.tokenSeed = randomBytes(32).toString('base64');
-  
+
     return this.save()
         .then(user => {
             return jwt.sign({tokenSeed: this.tokenSeed}, process.env.SECRET);
@@ -38,7 +38,7 @@ userSchema.methods.tokenCreate    = function(){
         .then(token => {
             return token;
         });
-    
+
 };
 
 // MODEL
@@ -46,7 +46,7 @@ const User = Mongoose.model('user', userSchema);
 
 // STATIC METHODS
 User.createFromSignup = function (user) {
-  
+
     if(!user.password || !user.email || !user.username) {
         return Promise.reject( createError(400, 'VALIDATION ERROR: missing username email or password ') );
     }
@@ -59,7 +59,33 @@ User.createFromSignup = function (user) {
             let data = Object.assign({}, user, {passwordHash});
             return new User(data).save();
         });
-    
+
+};
+
+User.createFromOAuth = function (OAuthUser) {
+
+
+  if ( ! OAuthUser || ! OAuthUser.email ) {
+      return Promise.reject( createError(400, 'VALIDATION ERROR: missing username email or password ') );
+  }
+
+  return User.findOne({email:OAuthUser.email})
+      .then(user => {
+          if ( ! user ) { throw new Error ("User Not Found"); }
+          console.log("Welcome Back", user.username);
+          return user;
+      })
+      .catch( error => {
+          // Create the user
+          let username = faker.internet.userName();
+          console.log("Welcome To Our World", username);
+          return new User({
+              username: username,
+              email: OAuthUser.email
+          }).save();
+      })
+
+
 };
 
 // INTERFACE
